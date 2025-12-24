@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Agriculture Department – Nehru Institute of Technology | Home</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>Agriculture Department – Nehru Institute of Technology</h1>
+      <p>Tamil Nadu Soil Map • Soil Types • District-wise Information</p>
+    </div>
+    
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="map.html" class="">Soil Map</a>
+      <a href="soils.html" class="">Soil Types</a>
+      <a href="districts.html" class="">Districts</a>
+      <a href="about.html" class="">About</a>
+    </nav>
+    
+  </header>
+
+  
+<main class="container">
+  <div class="card">
+    <span class="badge">Project Website</span>
+    <h2 style="margin-top:10px">Soil Map of Tamil Nadu</h2>
+    <p>This website contains a soil map of Tamil Nadu, soil-type descriptions, and district-wise links for detailed views. Use the buttons below to explore.</p>
+    <div class="btnrow">
+      <a class="btn" href="map.html">Open Soil Map</a>
+      <a class="btn secondary" href="soils.html">Browse Soil Types</a>
+      <a class="btn secondary" href="districts.html">District-wise Pages</a>
+    </div>
+    <p class="small">Tip: Update <code>data/tn_districts.geojson</code> with real district boundaries and connect a soil layer (WMS or GeoJSON polygons).</p>
+  </div>
+
+  <div class="grid cols-2" style="margin-top:14px">
+    <div class="card" id="state-proportion">
+      <h3>State Soil Proportion (Sample Dataset)</h3>
+      <p>The chart below uses the percentages from a commonly-cited Tamil Nadu soil distribution breakdown. Replace/verify with your chosen official source if needed.</p>
+      <canvas id="stateChart" width="800" height="420" style="width:100%;background:#fff;border:1px solid #e5e7eb;border-radius:14px"></canvas>
+      <div class="small" style="margin-top:8px">Data file: <code>data/state_soil_proportion.json</code></div>
+    </div>
+
+    <div class="card" id="district-proportion">
+      <h3>District-wise Soil Proportion</h3>
+      <p>To get soil % by district accurately, intersect Soil Polygons × District Boundaries in QGIS and export a JSON table.</p>
+      <ol class="small" style="color:#4b5563;line-height:1.6">
+        <li>Load district boundary GeoJSON/Shapefile</li>
+        <li>Load soil polygons (vector) or exported polygons from a WMS</li>
+        <li>Run <strong>Intersection</strong>, compute area (km²), and convert to %</li>
+        <li>Export results to <code>data/district_soil_proportion.json</code></li>
+      </ol>
+      <div class="btnrow">
+        <a class="btn" href="districts.html">View District Table</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid cols-3" style="margin-top:14px">
+    <div class="card">
+      <h3>Soil Types</h3>
+      <p>Red, Black, Brown, Alluvial, Grey, and Mixed soils — with key properties, crops, and management tips.</p>
+      <a href="soils.html">Open Soil Types →</a>
+    </div>
+    <div class="card">
+      <h3>Interactive Map</h3>
+      <p>Leaflet map with district boundaries. Click a district to open its detailed page and PDF link (you can add).</p>
+      <a href="map.html">Open Map →</a>
+    </div>
+    <div class="card">
+      <h3>Downloads / References</h3>
+      <p>Add official PDFs (Soil Atlas), soil survey reports, and dataset links on the About page.</p>
+      <a href="about.html">Open About →</a>
+    </div>
+  </div>
+</main>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div><strong>Agriculture Department – Nehru Institute of Technology</strong></div>
+      <div class="small">Note: This is a student/academic website template. Replace sample datasets with official GIS/atlas data for accuracy.</div>
+    </div>
+  </footer>
+  <script src="js/stateChart.js"></script>
+</body>
+</html>
